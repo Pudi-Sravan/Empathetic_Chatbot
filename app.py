@@ -3,6 +3,9 @@ from dotenv import load_dotenv
 from groq import Groq
 import gradio as gr
 
+from memory.short_term import update_short_term_memory, read_short_term
+from memory.long_term import read_long_term, trigger_background_extraction
+
 # Load environment variables
 load_dotenv()
 
@@ -11,29 +14,52 @@ client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
 # System Persona Prompt
 SYSTEM_PROMPT = """
-You are an empathetic, highly practical, and deeply supportive AI assistant dedicated exclusively to helping caretakers, family members, and guardians who support neurodivergent, disabled, or differently-abled individuals. Always validate the caretaker's feelings first, keep guidance structured and actionable, and maintain a warm, grounded tone.
+You are an empathetic, highly practical, and deeply supportive AI assistant dedicated exclusively to helping caretakers, family members, and guardians who support neurodivergent, disabled, or differently-abled individuals. Always validate the caretaker's feelings first, keep guidance structured and actionable, and maintain a warm, grounded tone. Utilize the provided long-term profile memory to personalize your response.
 """
 
+def clean_content(content):
+    """Strips out complex structural JSON/dict representations if passed by UI and extracts plain text."""
+    if isinstance(content, list):
+        texts = []
+        for item in content:
+            if isinstance(item, dict) and "text" in item:
+                texts.append(str(item["text"]))
+            else:
+                texts.append(str(item))
+        return " ".join(texts)
+    elif isinstance(content, dict) and "text" in content:
+        return str(content["text"])
+    return str(content)
+
 def chat_response(message, history):
-    """
-    Gradio ChatInterface passes:
-    - message: string typed by the user
-    - history: list of lists representing prior chat turns
-    """
-    if not message.strip():
-        return ""
+    clean_message = clean_content(message)
+    if not clean_message.strip():
+        return "", history, read_short_term(), read_long_term()
     
-    # Build messages array for Groq API
-    messages = [{"role": "system", "content": SYSTEM_PROMPT}]
+    # Standardize Gradio history format safely into plain text message dictionaries
+    formatted_history = []
+    for h in history:
+        if isinstance(h, dict) and "role" in h and "content" in h:
+            formatted_history.append({"role": h["role"], "content": clean_content(h["content"])})
+        elif isinstance(h, list) and len(h) == 2:
+            formatted_history.append({"role": "user", "content": clean_content(h[0])})
+            formatted_history.append({"role": "assistant", "content": clean_content(h[1])})
+
+    # 1. Update Short-Term Memory (Keeping last 2 turns exact)
+    short_term_view_data = update_short_term_memory(client, formatted_history)
+
+    # 2. Retrieve Long-Term Memory context
+    long_term_context = read_long_term()
+
+    # 3. Build messages payload
+    messages = [
+        {"role": "system", "content": SYSTEM_PROMPT + f"\n\n### Caretaker & Patient Long-Term Profile Context:\n{long_term_context}"}
+    ]
     
-    # Handle standard history format (list of [user, assistant] pairs)
-    for human, assistant in history:
-        messages.append({"role": "user", "content": human})
-        messages.append({"role": "assistant", "content": assistant})
-        
-    # Append current user message
-    messages.append({"role": "user", "content": message})
-    
+    for turn in formatted_history:
+        messages.append({"role": turn["role"], "content": turn["content"]})
+    messages.append({"role": "user", "content": clean_message})
+
     try:
         completion = client.chat.completions.create(
             model="llama-3.1-8b-instant",
@@ -41,18 +67,46 @@ def chat_response(message, history):
             temperature=0.6,
             max_tokens=500
         )
-        return completion.choices[0].message.content
+        bot_response = completion.choices[0].message.content
     except Exception as e:
-        return f"I'm sorry, I encountered an error connecting to the service: {e}"
+        bot_response = f"I'm sorry, I encountered an error connecting to the service: {e}"
 
-# Build Clean UI using ChatInterface (without theme here)
-demo = gr.ChatInterface(
-    fn=chat_response,
-    title="💙 Caretaker Support Companion",
-    description="A safe, empathetic space for caretakers to share challenges, receive practical advice, and find community guidance.",
-    textbox=gr.Textbox(placeholder="e.g., He is experiencing severe sensory overload right now, what should I do?", container=False, scale=7)
-)
+    # 4. Trigger Background Extraction Worker for Long-Term Memory
+    trigger_background_extraction(client, clean_message, bot_response)
+
+    # Append to chat history using strict dictionary message format required by this Gradio version
+    history.append({"role": "user", "content": clean_message})
+    history.append({"role": "assistant", "content": bot_response})
+    
+    return "", history, short_term_view_data, read_long_term()
+
+# --- GRADIO CUSTOM LAYOUT UI (No Emojis) ---
+with gr.Blocks() as demo:
+    gr.Markdown("# Caretaker Support Companion")
+    gr.Markdown("A specialized platform providing empathetic guidance and automated memory tracking for caretakers.")
+    
+    with gr.Row():
+        # Left Column: Chat Interface
+        with gr.Column(scale=3):
+            chatbot = gr.Chatbot(label="Conversation", height=500)
+            msg = gr.Textbox(placeholder="e.g., My brother is 15 years old and scared of dark areas...", container=False)
+            submit_btn = gr.Button("Send", variant="primary")
+            clear_btn = gr.Button("Clear Chat")
+
+        # Right Column: Live Memory Inspector Panels
+        with gr.Column(scale=2):
+            gr.Markdown("### Short-Term Memory Buffer")
+            short_term_view = gr.Markdown(value=read_short_term())
+            
+            gr.Markdown("### Long-Term Profile Memory (Markdown)")
+            long_term_view = gr.Markdown(value=read_long_term())
+
+    def user_action(user_message, history):
+        return chat_response(user_message, history)
+
+    msg.submit(user_action, [msg, chatbot], [msg, chatbot, short_term_view, long_term_view])
+    submit_btn.click(user_action, [msg, chatbot], [msg, chatbot, short_term_view, long_term_view])
+    clear_btn.click(lambda: ([], read_short_term(), read_long_term()), None, [chatbot, short_term_view, long_term_view])
 
 if __name__ == "__main__":
-    # Pass theme inside launch() instead
     demo.launch(server_name="127.0.0.1", server_port=7860, theme=gr.themes.Soft())
