@@ -178,6 +178,13 @@ with gr.Blocks() as demo:
     msg.submit(user_action, [msg, chatbot], [msg, chatbot, short_term_view, long_term_view])
     submit_btn.click(user_action, [msg, chatbot], [msg, chatbot, short_term_view, long_term_view])
     clear_btn.click(lambda: ([], read_short_term(), read_long_term()), None, [chatbot, short_term_view, long_term_view])
+    memory_timer = gr.Timer(2)
+
+    memory_timer.tick(
+        lambda: (read_short_term(), read_long_term()),
+        inputs=None,
+        outputs=[short_term_view, long_term_view]
+    )
 
 if __name__ == "__main__":
     demo.launch(server_name="127.0.0.1", server_port=7860, theme=gr.themes.Soft()) 

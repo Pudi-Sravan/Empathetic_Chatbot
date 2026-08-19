@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 from groq import Groq
 
-# Load environment variables from .env
+# Load environment variables from .env Emily has difficulty transitioning suddenly between activities. Giving her a 5-minute warning before changing activities helps her stay calm and cooperate better.
 load_dotenv()
 
 # Initialize the Groq client
