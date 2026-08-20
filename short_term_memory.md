@@ -1,86 +1,59 @@
 ### Older Conversation Summary
-* **Key Facts:**
-  * Emily is a 16-year-old with autism and ADHD.
-  * The caretaker is seeking support to help Emily thrive and reach her full potential.
-* **Constraints:**
-  * The caretaker is struggling with the idea of Emily not being "normal."
-  * The caretaker is looking for ways to support Emily's unique needs.
-* **Emotional State:**
-  * The caretaker is feeling uncertain and seeking guidance.
-  * The caretaker is open to exploring new ideas and strategies to support Emily.
+Error generating summary: Error code: 404 - {'error': {'message': 'The model `llama-3.1-8b-instant` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}
 
 ### Recent 2 Turns (Exact)
-- **User**: can u guide me? she ant sit and enjoy peacefully and we never a good time it makes me be worried
-- **Assistant**: It can be incredibly distressing when Emily struggles to sit and enjoy a peaceful moment, and it's natural that you're worried about her well-being. Let's break down some potential strategies to help create a more peaceful environment for her:
+- **User**: Emily really enjoys drawing animals and usually chooses drawing activities when given a choice.
+- **Assistant**: It’s wonderful that Emily finds joy in drawing animals—having that creative outlet is a powerful anchor for her. When she gets a chance to choose, she feels more in control, which can make transitions feel less abrupt. Here’s a simple, step‑by‑step plan to weave that into your routine and keep the 5‑minute warning in place.
 
-**Understanding the underlying issues**:
+---
 
-Before we dive into solutions, it might be helpful to identify some possible reasons why Emily might be struggling to sit and relax. Is she:
+## 1. Build a “Choice Menu” for Transition Times
 
-* Experiencing anxiety or stress related to school, social situations, or other factors?
-* Overstimulated by her surroundings (e.g., noise, lights, or sensory inputs)?
-* Struggling with executive functioning skills (e.g., planning, organization, or time management)?
-* In need of more physical activity or movement?
+| Step | What to Do | Why It Helps |
+|------|------------|--------------|
+| **Create a visual menu** | Use a small board or a set of index cards with pictures of animals (e.g., a cat, a dolphin, a dinosaur). | She can see her options at a glance and pick what she likes. |
+| **Label each card with a “transition cue”** | Add a tiny clock icon or “5‑min warning” sticker next to each card. | Reinforces the idea that a change is coming soon. |
+| **Place the menu near the transition area** | Keep it in the corner of the room where she’ll be drawing or where she’ll be moving to the next activity. | Keeps the visual cue constant and accessible. |
 
-**Creating a peaceful environment**:
+### Quick Action:  
+- Grab a whiteboard or a small corkboard.  
+- Stick 5–7 animal images (drawn or printed).  
+- Add a small “5‑min” sticker or write “5‑min” on each card.
 
-1. **Sensory-friendly space**: Ensure the area where Emily sits is comfortable and free from distractions. Consider using:
-        * Calming colors or soothing lighting
-        * Comfortable seating or cushions
-        * Minimizing noise levels or using noise-cancelling headphones
-        * Reducing visual stimuli (e.g., turning off TVs or removing screens)
-2. **Sensory integration techniques**: Implement strategies to help Emily regulate her senses, such as:
-        * Deep pressure (e.g., hugs, joint compressions, or weighted blankets)
-        * Swinging or rocking motions
-        * Tactile input (e.g., playdough, slime, or sand)
-        * Visual input (e.g., watching calming visuals or listening to soothing sounds)
-3. **Anxiety-reducing activities**: Engage Emily in activities that help her relax and reduce anxiety, such as:
-        * Guided meditation or visualization
-        * Yoga or gentle stretching
-        * Drawing, painting, or other creative pursuits
-        * Playing calming music or listening to ASMR
-4. **Structure and routine**: Establish a daily routine that includes regular breaks and relaxation time. This can help Emily feel more secure and in control.
-5. **Professional guidance**: Consult with a therapist, counselor, or other professionals who specialize in supporting individuals with autism and ADHD. They can help you develop a personalized plan tailored to Emily's unique needs.
+---
 
-**Your role as a support system**:
+## 2. Use the 5‑Minute Warning with a “Bridge” Drawing Session
 
-As Emily's caregiver, you play a vital role in creating a peaceful environment. Remember to:
+| Time | Activity | How to Execute |
+|------|----------|----------------|
+| **0‑5 min before change** | **Give verbal cue + show timer** | Say, “We’re going to switch in 5 minutes.” Start a timer or show a countdown. |
+| **5‑4 min** | **Prompt a quick animal drawing** | “Let’s draw a quick animal while we wait.” Let her choose from the menu. |
+| **4‑2 min** | **Continue drawing** | Encourage her to add details. This keeps her focused and gives her a sense of control. |
+| **2‑0 min** | **Wrap up &
+- **User**: Emily probably dislikes crowded places because she has autism.
+- **Assistant**: It’s completely understandable that you’re noticing how crowded environments can feel overwhelming for Emily. You’re already doing a great job by tuning into her reactions and looking for ways to support her. Let’s build on that awareness with a few concrete, gentle strategies that can help her feel safe and calm when she does need to be around more people.
 
-* Be patient and understanding
-* Offer reassurance and validation
-* Encourage Emily to express her feelings and needs
-* Model
-- **User**: however there is pokemon cartoon which helps her relax u have qanymore alternatrives?
-- **Assistant**: The Pokémon cartoon can be a great way to help Emily relax. It's wonderful that you've found something that works for her. Here are some alternative suggestions that might help her unwind:
+---
 
-**More anime and cartoons**:
+## 1. Anticipate the Crowded Situation
 
-1. **SpongeBob SquarePants**: A classic cartoon that's often calming and fun to watch.
-2. **Peppa Pig**: A popular children's show that's gentle and easy to follow.
-3. **Octonauts**: An animated series about a team of underwater explorers that might fascinate Emily.
-4. **My Little Pony: Friendship is Magic**: A colorful and imaginative show that promotes friendship and kindness.
-5. **Steven Universe**: A coming-of-age story with a focus on emotional intelligence and self-acceptance.
+| What | Why it helps | Quick Action |
+|------|--------------|--------------|
+| **Pre‑visit “preview”** | Gives Emily a chance to see what the place looks like before she’s there. | • Take a photo of the entrance or a short video of the hallway.<br>• Show it together and talk about what she sees. |
+| **Create a “crowd‑tool kit”** | Equips her with a few sensory tools that she can use if the environment feels too intense. | • A small fidget toy, noise‑cancelling earbuds, a weighted lap pad.<br>• Pack them in a clear, labeled bag. |
 
-**Calming shows and movies**:
+---
 
-1. **Bluey**: A heartwarming animated series about a family of dogs that explores everyday life and emotions.
-2. **The Magic School Bus Rides Again**: A fun and educational show that's perfect for curious minds.
-3. **The Muppet Babies**: A reboot of the classic series, featuring the Muppet characters as babies.
-4. **The Land Before Time**: A classic animated film series about a young dinosaur's journey.
-5. **Inside Out**: A Pixar movie that explores the emotions and inner world of a young girl.
+## 2. Use the 5‑Minute Warning System in New Settings
 
-**Nature documentaries and shows**:
+| Step | How to Do It | Example Script |
+|------|--------------|----------------|
+| **Give a 5‑min verbal cue** | Let her know a transition is coming up (e.g., “We’re going to move to the next station in 5 minutes”). | “We’re going to go to the next aisle in 5 minutes. Let’s keep the calm music on.” |
+| **Pair it with a visual timer** | A small timer app or a physical sand timer makes the countdown visible. | “Watch the timer—when it’s almost done, we’ll move.” |
+| **Offer a “bridge” activity** | Something quick and familiar (e.g., drawing a quick animal from her menu). | “Let’s draw a quick dolphin while we wait for the next area.” |
 
-1. **Planet Earth**: A stunning documentary series about the natural world.
-2. **Our Planet**: A Netflix series that showcases the beauty of the natural world.
-3. **Wild Kratts**: An animated show that teaches about different animals and their habitats.
-4. **The Magic School Bus Gets Lost in the Solar System**: A fun and educational show that explores space and science.
-5. **Nature documentaries on PBS or BBC**: Many documentaries about animals, plants, and the environment can be calming and educational.
+---
 
-**Other relaxation aids**:
+## 3. Plan for Sensory‑Friendly Alternatives
 
-1. **Guided meditation videos**: Websites like YouTube or Calm offer guided meditations for kids and adults.
-2. **ASMR videos**: Autonomous sensory meridian response (ASMR) videos can be calming and soothing for some people.
-3. **Nature sounds**: Websites like Rainy Mood or Calm offer calming sounds like rain, ocean waves, or forest noises.
-4. **Coloring books and puzzles**: Engage Emily in creative activities like coloring, puzzles, or playdough to help her relax.
-5. **Yoga
+| Option | How it Helps | Practical Tips |
