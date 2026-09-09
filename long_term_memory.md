@@ -1,13 +1,18 @@
 ### General Info
 
-- Arjun is 15 years old.
-- Arjun likes watching nature documentaries when he is relaxed.
+- Caretaker managing a neurodivergent care recipient.
+- Arjun is 16 years old.
+- Arjun has autism.
+- Arjun enjoys watching nature documentaries when relaxed.
 
 ### Sensory & Behavioral Triggers
 
-- Arjun gets very anxious when there are sudden loud noises, especially thunderstorms.
-- Arjun becomes overwhelmed when his daily routine changes unexpectedly.
+- Arjun gets overwhelmed by sudden loud noises, especially thunderstorms.
+- Unfamiliar places make Arjun anxious.
 
 ### Calming Strategies & Routines
 
-- Giving him his headphones and moving to a quiet room usually helps him calm down
+- Noise‑cancelling headphones and a quiet room usually help him calm down.
+- Giving Arjun a 10‑minute warning before leaving usually makes transitions easier.
+- The visual schedule and headphones worked really well at the appointment.
+- Eating icecream helps him relax.
